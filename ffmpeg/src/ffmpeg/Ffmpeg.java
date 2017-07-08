@@ -7,7 +7,7 @@ import java.util.List;
 public class Ffmpeg {
 
 	public static void main(String[] args) {
-
+        //≤‚ ‘git
 		 processImg("C:\\Users\\yczxxs1\\Desktop\\_RNLdmXCpqXOyBvM.mp4","C:\\Users\\yczxxs1\\Downloads\\ffmpeg-20170321-db7a05d-win64-static\\bin\\ffmpeg");  
 	}
 
