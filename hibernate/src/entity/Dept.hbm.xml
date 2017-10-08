@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-19 9:51:32 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="entity.Dept" table="DEPT">
+        <id name="deptno" type="int">
+            <column name="DEPTNO" />
+            <generator class="assigned" />
+        </id>
+        <property name="dname" type="java.lang.String">
+            <column name="DNAME" />
+        </property>
+        <property name="loc" type="java.lang.String">
+            <column name="LOC" />
+        </property>
+        <set name="emps" inverse="true" table="EMP" lazy="true" cascade="save-update" fetch="join">
+            <key foreign-key="fk_deptno">
+                <column name="DEPTNO" />
+            </key>
+            <one-to-many class="entity.Emp" />
+        </set>
+    </class>
+</hibernate-mapping>

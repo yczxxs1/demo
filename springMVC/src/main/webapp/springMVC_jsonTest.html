@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+	request3();
+}
+
+function request1(){    //发送json请求 contentType必须是application/json 否则返回415
+	var jsonStr={"data":{
+		"username":"你好"
+		//"password":"aaaa"
+	          }			
+	}
+	$.ajax({
+		url:'users/putUser.action',
+		type:'post',
+		contentType: "application/json",
+		//contentType: "text/pain",
+		data:JSON.stringify(jsonStr),
+		async: true,
+		success:function(data){
+			alert("ok");
+			
+		},
+	    error:function(xhr){
+		alert("错误提示： " + xhr.status + " " + xhr.statusText);
+		}
+
+	}); 
+}
+
+function request2(){    //发送只接收json的请求 Accept必须是是application/json; charset=utf-8 否则返回406
+
+	$.ajax({
+	  headers: {
+		        Accept: "application/json; charset=utf-8"
+		        	//Accept: "text/plain"
+		    },
+		url:'users/user/aaa.action',
+		type:'delete',
+		async: true,
+		success:function(data){
+			alert("ok");
+			
+		},
+	    error:function(xhr){
+		alert("错误提示： " + xhr.status + " " + xhr.statusText);
+		}
+
+	}); 
+}
+
+
+function request3(){    
+	var jsonStr={"data":{
+		"username":"你好"
+		//"password":"aaaa"
+	          }			
+	}
+	$.ajax({
+		headers: {
+			MyRequestHeader: "MyValue"
+	    //自定义header
+	    },
+		url:'users/requestEntity.action',
+		type:'post',
+		contentType: "application/json",
+		//contentType: "text/pain",
+		data:JSON.stringify(jsonStr),
+		async: true,
+		success:function(data){
+			alert("ok");
+			
+		},
+	    error:function(xhr){
+		alert("错误提示： " + xhr.status + " " + xhr.statusText);
+		}
+
+	}); 
+}
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

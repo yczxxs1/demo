@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-19 9:51:32 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="entity.Emp" table="EMP">
+        <id name="empno" type="java.lang.Integer">
+            <column name="EMPNO" />
+            <generator class="assigned" />
+        </id>
+        <property name="ename" type="java.lang.String">
+            <column name="ENAME" />
+        </property>
+        <property name="job" type="java.lang.String">
+            <column name="JOB" />
+        </property>
+        <property name="mgr" type="java.lang.Integer">
+            <column name="MGR" />
+        </property>
+        <property name="hiredate" type="java.util.Date">
+            <column name="HIREDATE" />
+        </property>
+        <property name="sal" type="java.lang.Double">
+            <column name="SAL" />
+        </property>
+        <property name="comm" type="java.lang.Double">
+            <column name="COMM" />
+        </property>
+     <many-to-one name="dept" class="entity.Dept" foreign-key="fk_deptno" cascade="all" fetch="join">
+            <column name="deptno"></column>  
+     </many-to-one>
+
+    </class>
+</hibernate-mapping>
