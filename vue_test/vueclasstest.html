@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>无人机项目</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+
+<div id='app'>
+ <div  v-bind:class="{ active: isActive ,cc: isActive}"></div>
+  <div  v-bind:class="classObject"></div>
+</div>
+ 
+<div id='app3' v-bind:style="styleObject"></div>
+  
+  
+
+</div>
+
+
+
+</body>
+  <script type="text/javascript">
+   var app = new Vue({
+  el: '#app',
+  data: {
+   isActive: true,
+    classObject:{
+     active:true,
+	 cc:false
+   }
+  }
+  
+})
+
+ var app3 = new Vue({
+  el: '#app3',
+  data: {
+   
+   styleObject:{
+     color:'red',
+	 fontSize:'12px'
+   }
+  } 
+})
+
+
+
+  </script>
+</html>

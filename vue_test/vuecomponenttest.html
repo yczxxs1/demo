@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>无人机项目</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+<div id="example">
+  <my-component></my-component>
+</div>
+
+
+<div id="example1">
+<my-component1></my-component1>
+</div>
+
+
+<div id="example-2">
+  <simple-counter></simple-counter>
+  <simple-counter></simple-counter>
+  <simple-counter></simple-counter>
+</div>
+
+<div id="example-3">
+<child my-message="hello!"></child>
+
+<div>
+  <input v-model="parentMsg">
+  <br>
+  <child v-bind:my-message="parentMsg"></child>
+</div>
+</div>
+
+</body>
+
+  <script type="text/javascript">
+	// 注册
+Vue.component('my-component', {
+  template: '<div>A custom component!</div>'
+})
+// 创建根实例
+new Vue({
+  el: '#example'
+})
+
+//局部注册
+var Child = {
+  template: '<div>A custom component!</div>'
+}
+new Vue({
+  // ...
+  el: '#example1',
+  components: {
+    // <my-component1> 将只在父模板可用
+    'my-component1': Child
+  }
+})
+
+
+Vue.component('simple-counter', {
+  template: '<button v-on:click="counter += 1">{{ counter }}</button>',
+ 
+  data: function () {
+  return  {counter: 0}
+  
+}
+})
+new Vue({
+  el: '#example-2'
+})
+
+Vue.component('child', {
+  // 声明 props
+  props: ['myMessage'],
+  // 就像 data 一样，prop 可以用在模板内
+  // 同样也可以在 vm 实例中像“this.message”这样使用
+  template: '<span>{{ myMessage }}</span>'
+})
+
+new Vue({
+  el:'#example-3',
+  data:{
+    parentMsg:''
+  }
+   
+})
+  </script>
+</html>

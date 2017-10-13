@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>无人机项目</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+
+  
+  <div id='app4'>
+  <h1 v-if="ok">Yes</h1>
+<h1 v-else>No</h1>
+</div>
+
+
+<div id='app5'>
+<div v-if="Math.random() > 0.5">
+  Now you see me
+</div>
+<div v-else>
+  Now you don't
+</div>
+
+<div  v-if="type === 'A'">
+  A
+</div>
+<div  v-else-if="type === 'B'">
+  B
+</div>
+<div  v-else-if="type === 'C'">
+  C
+</div>
+<div  v-else>
+  Not A/B/C
+</div>
+
+<template v-if="ok">
+  <h1>Title</h1>
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+</template>
+
+<template v-if="loginType === 'username'">
+  <label>Username</label>
+  <input placeholder="Enter your username" key="username-input">
+</template>
+<template v-else>
+  <label>Email</label>
+  <input placeholder="Enter your email address" key="email-input">
+</template>
+
+<h1 v-show="ok">Hello!</h1>
+
+</div>
+
+
+
+</body>
+  <script type="text/javascript">
+
+var app4 = new Vue({
+  el: '#app4',
+  data: {
+    ok:true
+  } 
+})
+
+var app5 = new Vue({
+  el: '#app5',
+  data: {
+    type:'A',
+	ok:false,
+	loginType:'username'
+  } 
+})
+
+  </script>
+</html>
